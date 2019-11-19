@@ -27,14 +27,7 @@ pipeline {
         }
       }
     }
-    stage('Build') {
-      steps {
-        script {
-          echo "hola muy buenas todo terminado"
-         
-        }
-      }
-    }
+    
    
      
     }
