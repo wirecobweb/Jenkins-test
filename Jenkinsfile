@@ -1,0 +1,43 @@
+#!/bin/groovy
+pipeline {
+  tools {
+    nodejs 'default-nodejs'
+  }
+  stages {
+    stage('Startup') {
+      steps {
+        script {
+          sh 'npm install'
+        }
+      }
+    }
+    stage('Test') {
+      steps {
+        script {
+          sh 'npm run test'
+        }
+      }
+      post {
+        always {
+          step {
+              script{
+                'npm run test:coverage'
+              }
+          }
+        }
+      }
+    }
+    stage('Build') {
+      steps {
+        script {
+          echo "hola muy buenas todo terminado"
+         
+        }
+      }
+    }
+   
+     
+    }
+  }
+
+
