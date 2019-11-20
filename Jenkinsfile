@@ -1,7 +1,7 @@
 #!/bin/groovy
 pipeline {
   tools {
-    nodejs 'nodejs'
+    nodejs 'default-nodejs'
   }
   stages {
     stage('Startup') {
