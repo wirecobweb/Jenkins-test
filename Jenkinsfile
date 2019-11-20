@@ -1,36 +1,33 @@
-#!/bin/groovy
 pipeline {
-  tools {
-    nodejs 'default-nodejs'
-  }
+  agent any
+    
+  tools {nodejs "node"}
+    
   stages {
-    stage('Startup') {
+        
+    stage('Cloning Git') {
       steps {
-        script {
-          sh 'npm install'
-        }
+        git 'https://github.com/gustavoapolinario/node-todo-frontend'
       }
     }
+        
+    stage('Install dependencies') {
+      steps {
+        sh 'npm install'
+      }
+    }
+     
     stage('Test') {
       steps {
-        script {
-          sh 'npm run test'
-        }
+         sh 'npm run test'
       }
-      
-    }
-    stage('Test2') {
+    }    
+     stage('Coverage') {
       steps {
-        script {
-          sh 'npm run test:coverage'
-        }
+         sh 'npm run test:coverage'
       }
-      
-    }
-    
-   
-     
     }
   }
+}
 
 
