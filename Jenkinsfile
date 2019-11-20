@@ -1,28 +1,36 @@
+#!/bin/groovy
 pipeline {
-  agent any
-    
-  tools {nodejs "node"}
-    
+  tools {
+    nodejs 'default-nodejs'
+  }
   stages {
-        
-    stage('Cloning Git') {
+    stage('Startup') {
       steps {
-        git 'https://github.com/wirecobweb/Jenkins-test'
+        script {
+          sh 'npm install'
+        }
       }
     }
-        
-    stage('Install dependencies') {
-      steps {
-        sh 'npm install'
-      }
-    }
-     
     stage('Test') {
       steps {
-         sh 'npm test'
+        script {
+          sh 'npm run test'
+        }
       }
-    }      
+      
+    }
+    stage('Test2') {
+      steps {
+        script {
+          sh 'npm run test:coverage'
+        }
+      }
+      
+    }
+    
+   
+     
+    }
   }
-}
 
 
