@@ -27,13 +27,7 @@ pipeline {
          sh 'npm run test:coverage'
       }
     }
-     stage('git') {
-      steps {
-         sh 'git add .'
-         sh 'git commit -m 'test jenkins'
-          sh 'git push'
-      }
-    }
+     
   }
 }
 
