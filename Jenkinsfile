@@ -17,15 +17,7 @@ pipeline {
           sh 'npm run test'
         }
       }
-      post {
-        always {
-          step {
-              script{
-                'npm run test:coverage'
-              }
-          }
-        }
-      }
+      
     }
     
    
