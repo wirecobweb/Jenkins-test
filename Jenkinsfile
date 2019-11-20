@@ -16,15 +16,6 @@ pipeline {
         sh 'npm install'
       }
     }
-    post{
-      always {
-          
-      steps {
-        echo 'hola'
-      
-           }
-        }
-    }
    
     stage('Test') {
       steps {
