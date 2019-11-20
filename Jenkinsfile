@@ -18,7 +18,11 @@ pipeline {
     }
     post{
       always {
-           echo 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
+          
+      steps {
+        echo 'hola'
+      
+           }
         }
     }
    
